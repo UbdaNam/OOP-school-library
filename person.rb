@@ -1,4 +1,8 @@
-class Person
+require "./interface.rb"
+require "./CapitalizeDecorator.rb"
+require "./TrimmerDecorator.rb"
+
+class Person < Nameable
   attr_accessor :name, :age
   attr_reader :id
 
@@ -13,9 +17,21 @@ class Person
     of_age? || @parent_permission
   end
 
+  def correct_name
+    @name
+  end
+
   private
 
   def of_age?
     @age >= 18
   end
 end
+
+#example to test out decorated class person
+person = Person.new(22, 'maximilianus')
+puts person.correct_name
+puts capitalizedPerson = CapitalizeDecorator.new(person)
+puts capitalizedPerson.correct_name
+puts capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
+puts capitalizedTrimmedPerson.correct_name
