@@ -1,7 +1,8 @@
-require "./interface.rb"
+require './interface'
 
 class BaseDecorator < Nameable
   def initialize(nameable)
+    super()
     @nameable = nameable
   end
 
