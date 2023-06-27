@@ -90,6 +90,11 @@ In the project directory, you can run:
 - GitHub: [@UbdaNam](https://github.com/UbdaNam)
 - LinkedIn: [Abdurahim M.](https://www.linkedin.com/in/abdurahim-miftah/)
 
+👤 **bancunguye Aimable**
+
+- GitHub: [@bancunguye66](https://github.com/bancunguye66)
+- LinkedIn: [Aimable Bancunguye](in/aimable-bancunguye-aba703143)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
