@@ -1,5 +1,5 @@
 class Menu
-  def get_menu
+  def menu
     puts 'Please choose an option:'
     puts '1. List all books'
     puts '2. List all people'
@@ -10,7 +10,7 @@ class Menu
     puts '7. Exit'
   end
 
-  def get_options
+  def options
     {
       1 => :list_all_books,
       2 => :list_all_people,

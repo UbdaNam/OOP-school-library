@@ -14,9 +14,9 @@ def main
   menu = Menu.new
   puts 'Welcome to my School Library'
   loop do
-    menu.get_menu
+    menu.menu
     user_choice = gets.chomp.to_i
-    options = menu.get_options
+    options = menu.options
     trigger_choice(options, user_choice, app)
   end
 end
