@@ -93,7 +93,7 @@ In the project directory, you can run:
 👤 **bancunguye Aimable**
 
 - GitHub: [@bancunguye66](https://github.com/bancunguye66)
-- LinkedIn: [Aimable Bancunguye](in/aimable-bancunguye-aba703143)
+- LinkedIn: [Aimable Bancunguye](https://www.linkedin.com/in/aimable-bancunguye-aba703143/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
