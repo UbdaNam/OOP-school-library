@@ -1,5 +1,7 @@
 module LoadData
   def load_books
+    return unless File.exist?('./data/books.json')
+
     books = JSON.parse File.read('./data/books.json')
     return if books.nil?
 
@@ -10,6 +12,8 @@ module LoadData
   end
 
   def load_people
+    return unless File.exist?('./data/users.json')
+
     users = JSON.parse File.read('./data/users.json')
     return if users.nil?
 
@@ -20,6 +24,8 @@ module LoadData
   end
 
   def load_rentals
+    return unless File.exist?('./data/rentals.json')
+
     rentals = JSON.parse File.read('./data/rentals.json')
     return if rentals.nil?
 
