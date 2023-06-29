@@ -2,48 +2,19 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
+require "./modules/save_data.rb"
+require "./modules/load_data.rb"
 require "json"
 
-    # puts  JSON.parse({
-    #   "title": "ads",
-    #   "author": "asd",
-    #   "rentals": [
-    #     {
-    #       "date": "23",
-    #       "person_id": 452
-    #     }
-    #   ]
-    # }.to_json).transform_keys { |key| key.to_sym }
-
-
 class App
+  include SaveData
+  include LoadData
+
   def initialize
     @students = []
     @teachers = []
     @books = []
     @rentals = []
-  end
-
-  def save_books
-    json = JSON.pretty_generate(@books)
-    File.write("books.json", json)
-  end
-
-  def save_peoples
-    json = JSON.pretty_generate(@students + @teachers)
-    File.write("users.json", json)
-  end
-
-  def save_rentals
-    json = JSON.pretty_generate(@rentals)
-    File.write("rentals.json", json)
-  end
-
-  def save_data
-    save_books
-    save_peoples
-    save_rentals
-    exit
   end
 
   def list_all_books

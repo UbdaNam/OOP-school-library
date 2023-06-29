@@ -11,6 +11,7 @@ end
 
 def main
   app = App.new
+  app.load_data
   menu = Menu.new
   puts 'Welcome to my School Library'
   loop do

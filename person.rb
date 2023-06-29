@@ -26,11 +26,6 @@ class Person < Nameable
     Rental.new(date, book, self)
   end
 
-  # def self.from_json(string)
-  #   data = JSON.load string
-  #   self.new(data['name'], data['age'], data['gender'])
-  # end
-
   private
 
   def of_age?

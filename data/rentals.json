@@ -1,0 +1,56 @@
+[
+  {
+    "date": "234",
+    "book": {
+      "title": "sad",
+      "author": "zxc",
+      "rentals": [
+        {
+          "date": "234",
+          "person_id": 447
+        }
+      ]
+    },
+    "person": {
+      "id": 447,
+      "name": "abd",
+      "age": 43,
+      "parent_permission": true,
+      "classroom": "asd",
+      "rentals": [
+        {
+          "date": "234",
+          "book_title": "sad",
+          "book_author": "zxc"
+        }
+      ]
+    }
+  },
+  {
+    "date": "4545",
+    "book": {
+      "title": "yu",
+      "author": " nm",
+      "rentals": [
+        {
+          "date": "4545",
+          "person_id": 696
+        }
+      ]
+    },
+    "person": {
+      "id": 696,
+      "name": "wer",
+      "age": 0,
+      "parent_permission": true,
+      "specialization": "doc",
+      "rentals": [
+        {
+          "date": "4545",
+          "book_title": "yu",
+          "book_author": " nm"
+        }
+      ]
+    }
+  }
+]

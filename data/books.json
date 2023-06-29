@@ -1,0 +1,22 @@
+[
+  {
+    "title": "sad",
+    "author": "zxc",
+    "rentals": [
+      {
+        "date": "234",
+        "person_id": 447
+      }
+    ]
+  },
+  {
+    "title": "yu",
+    "author": " nm",
+    "rentals": [
+      {
+        "date": "4545",
+        "person_id": 696
+      }
+    ]
+  }
+]
