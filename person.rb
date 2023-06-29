@@ -1,4 +1,5 @@
 require_relative 'interface'
+require "json"
 
 class Person < Nameable
   attr_accessor :name, :age, :rentals
@@ -24,6 +25,11 @@ class Person < Nameable
   def add_rental(book, date)
     Rental.new(date, book, self)
   end
+
+  # def self.from_json(string)
+  #   data = JSON.load string
+  #   self.new(data['name'], data['age'], data['gender'])
+  # end
 
   private
 

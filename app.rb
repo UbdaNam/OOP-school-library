@@ -2,6 +2,19 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
+require "json"
+
+    # puts  JSON.parse({
+    #   "title": "ads",
+    #   "author": "asd",
+    #   "rentals": [
+    #     {
+    #       "date": "23",
+    #       "person_id": 452
+    #     }
+    #   ]
+    # }.to_json).transform_keys { |key| key.to_sym }
+
 
 class App
   def initialize
@@ -11,11 +24,33 @@ class App
     @rentals = []
   end
 
+  def save_books
+    json = JSON.pretty_generate(@books)
+    File.write("books.json", json)
+  end
+
+  def save_peoples
+    json = JSON.pretty_generate(@students + @teachers)
+    File.write("users.json", json)
+  end
+
+  def save_rentals
+    json = JSON.pretty_generate(@rentals)
+    File.write("rentals.json", json)
+  end
+
+  def save_data
+    save_books
+    save_peoples
+    save_rentals
+    exit
+  end
+
   def list_all_books
     puts
     puts 'Book List'
     @books.each_with_index do |book, index|
-      puts "Book #{index + 1}. #{book.title} written by #{book.author}"
+      puts "Book #{index + 1}. #{book[:title]} written by #{book[:author]}"
     end
     puts
   end
@@ -24,10 +59,10 @@ class App
     puts
     puts 'People List'
     @students.each_with_index do |student, index|
-      puts "[Student] #{index + 1}. Name: #{student.name}, ID: #{student.id}, Age: #{student.age}"
+      puts "[Student] #{index + 1}. Name: #{student[:name]}, ID: #{student[:id]}, Age: #{student[:age]}"
     end
     @teachers.each_with_index do |teacher, index|
-      puts "[Teacher] #{index + 1}. Name: #{teacher.name}, ID: #{teacher.id}, Age: #{teacher.age}"
+      puts "[Teacher] #{index + 1}. Name: #{teacher[:name]}, ID: #{teacher[:id]}, Age: #{teacher[:age]}"
     end
     puts
   end
@@ -44,7 +79,7 @@ class App
     have_permission = gets.chomp.downcase
     have_permission = have_permission == 'y'
     student = Student.new(age, classroom, name, parent_permission: have_permission)
-    @students << student
+    @students << student.to_json
     puts 'Student created successfully'
     puts
   end
@@ -58,7 +93,7 @@ class App
     puts "Enter teacher's specialization:"
     specialization = gets.chomp
     teacher = Teacher.new(age, specialization, name)
-    @teachers << teacher
+    @teachers << teacher.to_json
     puts 'Teacher created successfully'
     puts
   end
@@ -88,7 +123,7 @@ class App
     puts 'Enter author name:'
     author = gets.chomp
     book = Book.new(title, author)
-    @books << book
+    @books << book.to_json
     puts 'Book created successfully'
     puts
   end
@@ -104,11 +139,11 @@ class App
       puts 'Choose a person from the below options:'
       puts 'People List'
       @students.each_with_index do |student, index|
-        puts "#{index + 1}) [Student #{index + 1}] Name: #{student.name}, ID: #{student.id}, Age: #{student.age}"
+        puts "#{index + 1}) [Student #{index + 1}] Name: #{student[:name]}, ID: #{student[:id]}, Age: #{student[:age]}"
       end
       @teachers.each_with_index do |teacher, index|
         print "#{@students.length + index + 1}) [Teacher #{index + 1}] "
-        puts "Name: #{teacher.name}, ID: #{teacher.id}, Age: #{teacher.age}"
+        puts "Name: #{teacher[:name]}, ID: #{teacher[:id]}, Age: #{teacher[:age]}"
       end
     end
   end
@@ -121,7 +156,7 @@ class App
       nil
     else
       @books.each_with_index do |book, index|
-        puts "#{index + 1}) [Book #{index + 1}] #{book.title} written by #{book.author}"
+        puts "#{index + 1}) [Book #{index + 1}] #{book[:title]} written by #{book[:author]}"
       end
     end
   end
@@ -136,12 +171,12 @@ class App
              end
     puts 'Choose a book from the below options:'
     list_books
-    gets.chomp.to_i
-    book = @books[index - 1]
+    book_index = gets.chomp.to_i
+    book = @books[book_index - 1]
     puts 'Enter rental date (DD/MM/YYYY):'
     date = gets.chomp
     rental = Rental.new(date, book, person)
-    @rentals << rental
+    @rentals << rental.to_json
     puts 'Rental created successfully'
     puts
   end
@@ -149,7 +184,7 @@ class App
   def list_rentals_by_id
     puts 'Enter id of the person:'
     id = gets.chomp.to_i
-    person_rentals = @rentals.select { |rental| rental.person.id == id }
+    person_rentals = @rentals.select { |rental| rental[:person][:id] == id }
     if person_rentals.empty?
       puts 'There are no rentals for this person'
       puts
@@ -157,7 +192,7 @@ class App
     else
       person_rentals.each_with_index do |rental, index|
         print "#{index + 1}) [Rental #{index + 1}] "
-        puts "Date: #{rental.date}, Book: #{rental.book.title} written by #{rental.book.author}"
+        puts "Date: #{rental[:date]}, Book: #{rental[:book][:title]} written by #{rental[:book][:author]}"
       end
     end
   end

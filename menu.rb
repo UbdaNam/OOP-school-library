@@ -18,7 +18,7 @@ class Menu
       4 => :create_book,
       5 => :create_rental,
       6 => :list_rentals_by_id,
-      7 => :exit
+      7 => :save_data
     }
   end
 end

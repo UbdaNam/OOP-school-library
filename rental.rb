@@ -4,8 +4,23 @@ class Rental
   def initialize(date, book, person)
     @date = date
     @book = book
-    book.rentals << self
     @person = person
-    person.rentals << self
+    book[:rentals] << {
+      date: self.date,
+      person_id: self.person[:id]
+    }
+    person[:rentals] << {
+      date: self.date,
+      book_title: self.book[:title],
+      book_author: self.book[:author]
+    }
+  end
+
+  def to_json
+    {
+      :date => @date,
+      :book => @book,
+      :person => @person
+    }
   end
 end
