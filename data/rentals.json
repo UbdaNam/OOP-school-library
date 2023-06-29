@@ -1,0 +1,29 @@
+[
+  {
+    "date": "234",
+    "book": {
+      "title": "dgbgb",
+      "author": "fdgbf",
+      "rentals": [
+        {
+          "date": "234",
+          "person_id": 62
+        }
+      ]
+    },
+    "person": {
+      "id": 62,
+      "name": "ertfd",
+      "age": 43,
+      "parent_permission": true,
+      "classroom": "5",
+      "rentals": [
+        {
+          "date": "234",
+          "book_title": "dgbgb",
+          "book_author": "fdgbf"
+        }
+      ]
+    }
+  }
+]

@@ -16,11 +16,11 @@ class Rental
     }
   end
 
-  def to_json
+  def to_json(*_args)
     {
-      :date => @date,
-      :book => @book,
-      :person => @person
+      date: @date,
+      book: @book,
+      person: @person
     }
   end
 end

@@ -2,9 +2,9 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require_relative 'rental'
-require "./modules/save_data.rb"
-require "./modules/load_data.rb"
-require "json"
+require './modules/save_data'
+require './modules/load_data'
+require 'json'
 
 class App
   include SaveData

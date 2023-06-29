@@ -1,5 +1,5 @@
 require_relative 'interface'
-require "json"
+require 'json'
 
 class Person < Nameable
   attr_accessor :name, :age, :rentals
